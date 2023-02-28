@@ -42,11 +42,17 @@ For the UserName secret Value you Must coincide with the IAM user you want to ro
 
 As I said before, secret (In secret Manager) must be created first in order to start using this Lambda.
 
-You can schedule Lambda as you wish, (I prefer as a nice best practice, to do it daily) in most companies rotation must be acommplished every 90 days.
+You can schedule Lambda as you wish, (I prefer as a nice best practice, to do it daily) in most companies rotation must be acommplished every 90 days. Trigger your function with Eventbridge schedule rule.
 
 -------------
 
-**Code explanation:** 
+**Role:** 
+
+Attach the Role LambdaExecutionRole.json to the execution Role in your Lambda function.
+
+-------------
+
+**Code considerations:** 
 
 This is suitable for all the Access Key scenarios (This is because some admins can manually touch access keys from the console, this will manage every scenario, trying to eliminate every manual error)
 
