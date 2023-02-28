@@ -4,7 +4,7 @@ This is a Python function made for AWS Lambda.
 
 Process will be like this:
 
-![grafico Rotate_ok](https://user-images.githubusercontent.com/103848038/221841790-68bc9cb1-c012-4104-837d-593bd41d9b36.png)
+![grafico Rotate222_ok](https://user-images.githubusercontent.com/103848038/221845183-9e005726-362d-48b6-9723-522d4fa17da1.png)
 
 Note that your applications will retrieve a secrete from secret manager, based on the Access/Secret Keys from the first column. You will never have "downtime" of your applications.
 
