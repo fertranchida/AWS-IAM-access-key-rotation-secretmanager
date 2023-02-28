@@ -2,13 +2,22 @@
 
 This is a Python function made for AWS Lambda.
 
+Process will be like this:
+
+![image](https://user-images.githubusercontent.com/103848038/221833337-670d0201-710e-4ab6-8493-8902f070131a.png)
+
+Note that your applications will retrieve a secrete from secret manager, based on the Access/Secret Keys from the first column. You will never have "downtime" of your applications.
+
+Why should I rotate my access/security keys? Security reasons: No matter how sensitive your data is, credentials are always recommended to rotate. 
+
 This function basically rotates a Secret like this:
 
 ![image](https://user-images.githubusercontent.com/103848038/221819488-954358b8-0b3b-4ff7-8749-da4173c720ed.png)
 
-Why should I rotate it? Security reasons: No matter how sensitive your data is, credentials are always recommended to rotate. 
+I know putting a Secret Key here could make you a bit uncomfortable, but what if you rotate it a lot? And what if you retrieve secret only from your known sources?
 
-It will rotate your IAM Access Keys and renew your secret. You will be ISO 27001 (and many normatives) compliant.
+
+Function will rotate your IAM Access Keys and renew your secret. You will be ISO 27001 (and many normatives) compliant.
 
 
 First, you need to create the Secret manually (just once), then you need to have enviroment variables into your Lambda:
@@ -16,9 +25,9 @@ First, you need to create the Secret manually (just once), then you need to have
 
 For this case my env. variable is:
 
-Key: sec
+>**Key: sec**
 
-Value: testrotation
+>**Value: testrotation**
 
 
 This is because I have only one secret. You can have multiple secrets separate by ;
@@ -27,17 +36,17 @@ Example: Value: testrotation;testrotation2;testrotation3
 
 The sectet value (In Secret Manager), must be composed with 3 Secret Keys:
 
-UserName - AccessKeyId - SecretAccessKey
+>**UserName - AccessKeyId - SecretAccessKey**
 
 For the UserName secret Value you Must coincide with the IAM user you want to rotate access keys.
 
-Secret (In secret Manager) must be created first in order to start using this Lambda.
+As I said before, secret (In secret Manager) must be created first in order to start using this Lambda.
 
-You can schedule Lambda as you wish, (I prefer as a great practice, to do it daily) in most companies rotation must be acommplished every 90 days.
+You can schedule Lambda as you wish, (I prefer as a nice best practice, to do it daily) in most companies rotation must be acommplished every 90 days.
 
 -------------
 
-Code explanation: 
+**Code explanation:** 
 
 This is suitable for all the Access Key scenarios (This is because some admins can manually touch access keys from the console, this will manage every scenario, trying to eliminate every manual error)
 
@@ -54,3 +63,11 @@ This is suitable for all the Access Key scenarios (This is because some admins c
 1 inactive: it will delete it, create a new one, update secret
 
 none: It will create 1, update secret
+
+-------------
+
+**A personal advice:** 
+
+Increase Security by limiting sources from where you can retrieve Secret.
+
+
