@@ -4,7 +4,7 @@
         {
             "Effect": "Allow",
             "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:eu-central-1:209280158933:*"
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
@@ -12,9 +12,7 @@
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
             ],
-            "Resource": [
-                "arn:aws:logs:eu-central-1:209280158933:log-group:/aws/lambda/IAKR-Rotate1:*"
-            ]
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
