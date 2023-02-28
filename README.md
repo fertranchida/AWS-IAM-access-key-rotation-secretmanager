@@ -74,6 +74,6 @@ none: It will create 1, update secret
 
 **A personal advice:** 
 
-Increase Security by limiting sources from where you can retrieve Secret.
+Increase Security by limiting sources from where you can retrieve Secret. Take a look of the examples here: https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html
 
 
