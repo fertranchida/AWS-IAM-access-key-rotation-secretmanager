@@ -52,9 +52,14 @@ Attach the Role LambdaExecutionRole.json to the execution Role in your Lambda fu
 
 -------------
 
-**Code considerations:** 
+**Code considerations and logic:** 
 
-This is suitable for all the Access Key scenarios (This is because some admins can manually touch access keys from the console, this will manage every scenario, trying to eliminate every manual error)
+This is suitable for all the Access Key scenarios (This is because some admins can manually touch access keys from the console. Function will manage every scenario and will try to eliminate manual errors)
+
+![image](https://user-images.githubusercontent.com/103848038/221890296-0e02bfe5-3da5-4650-9a7c-0d850c4d637b.png)
+
+e.g.:
+
 
 2 active access keys : It will deactivate the oldest, delete the oldest, create a new AK, replace Secret and deactivate the remaining active. (Leaving active only the new one).
 
