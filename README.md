@@ -6,7 +6,7 @@ This function basically rotates a Secret like this:
 
 ![image](https://user-images.githubusercontent.com/103848038/221819488-954358b8-0b3b-4ff7-8749-da4173c720ed.png)
 
-Why should I rotate it? Security reasons: No matter how sensitive is your data, credentials are always recommended to rotate. 
+Why should I rotate it? Security reasons: No matter how sensitive your data is, credentials are always recommended to rotate. 
 
 It will rotate your IAM Access Keys and renew your secret. You will be ISO 27001 (and many normatives) compliant.
 
