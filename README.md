@@ -1,10 +1,18 @@
 # iam_access_key_rotation-secretmanager
 
-This is for AWS Lambda
+This is a Python function made for AWS Lambda.
 
-It will rotate your access keys and renew you secret. You will be ISO 27001 (and many normatives) compliant.
+This function basically rotates a Secret like this:
 
-First, you need to have enviroment variables into your Lambda:
+![image](https://user-images.githubusercontent.com/103848038/221819488-954358b8-0b3b-4ff7-8749-da4173c720ed.png)
+
+Why should I rotate it? Security reasons: No matter how sensitive is your data, credentials are always recommended to rotate. 
+
+It will rotate your IAM Access Keys and renew your secret. You will be ISO 27001 (and many normatives) compliant.
+
+
+First, you need to create the Secret manually (just once), then you need to have enviroment variables into your Lambda:
+
 
 For this case my env. variable is:
 
@@ -12,10 +20,10 @@ Key: sec
 
 Value: testrotation
 
+
 This is because I have only one secret. You can have multiple secrets separate by ;
 
 Example: Value: testrotation;testrotation2;testrotation3
-
 
 The sectet value (In Secret Manager), must be composed with 3 Secret Keys:
 
