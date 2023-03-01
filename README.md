@@ -44,13 +44,17 @@ As I said before, secret (In secret Manager) must be created first in order to s
 
 You can schedule Lambda as you wish, (I prefer as a nice best practice, to do it daily) in most companies rotation must be acommplished every 90 days. Trigger your function with Eventbridge schedule rule.
 
+
 -------------
+
 
 **Role:** 
 
 Attach the Role LambdaExecutionRole.json to the execution Role in your Lambda function.
 
+
 -------------
+
 
 **Code considerations and logic:** 
 
@@ -61,19 +65,18 @@ This is suitable for all the Access Key scenarios (This is because some admins c
 e.g.:
 
 
-2 active access keys : It will deactivate the oldest, delete the oldest, create a new AK, replace Secret and deactivate the remaining active. (Leaving active only the new one).
+If 2 access keys are active: It will deactivate the different ones from the Secret Manager, next it will delete the inactive, create a new AK, replace Secret and deactivate the remaining active. (Leaving active only the new one).
 
-2 inactive access keys: It will delete both, and create a new one, updating secret.
+If you have 2 inactive access keys: It will delete both, and create a new one, updating secret.
 
-1 active: and 1 inactive: It will rotate properly
+If you have 1 active: and 1 inactive: It will delete inactive, activate a new one, update secret with new one and inactive remaining.
 
-1 inactive: and 1 active: It will rotate properly
+If you have 1 active: it will create a new one, update secret and deactivate the "old" active"
 
-1 active: it will create a new one, update secret and deactivate the "old" active"
+If you have 1 inactive: it will delete it, create a new one, update secret
 
-1 inactive: it will delete it, create a new one, update secret
+If you have none: It will create 1, update secret
 
-none: It will create 1, update secret
 
 -------------
 
