@@ -1,6 +1,6 @@
 # iam_access_key_rotation-secretmanager
 
-This is a Python function made for AWS Lambda.
+This is an AWS Lambda python function made for AWS Lambda.
 
 Process will be like this:
 
