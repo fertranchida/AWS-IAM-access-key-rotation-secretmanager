@@ -56,7 +56,7 @@ def lambda_handler(event, context):
         
         NewSecret = '{"UserName":"' + create_response['AccessKey']['UserName'] + '", "AccessKeyId":"' + create_response['AccessKey']['AccessKeyId'] + '", "SecretAccessKey":"' + create_response['AccessKey']['SecretAccessKey'] + '"}'
         secretsmanager.update_secret(SecretId=secret,SecretString=NewSecret)
-        print(secret + " UPDATED")
+        print(secret + " SECRET UPDATED")
 
     #This will inactivate the oldest one, right after a new one was created and updated in Secret Manager.
     for secret in secret_list:
